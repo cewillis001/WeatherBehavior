@@ -46,7 +46,9 @@ namespace
 SKSEPluginInfo(
 	.Version = { 1, 0, 0, 0 },
 	.Name = "WeatherBehavior",
-	.Author = "bottle")
+	.Author = "bottle",
+	.StructCompatibility = SKSE::StructCompatibility::Independent,
+	.RuntimeCompatibility = SKSE::VersionIndependence::AddressLibrary)
 
 SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
 {

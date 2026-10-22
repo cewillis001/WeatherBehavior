@@ -206,13 +206,13 @@ namespace WeatherBehavior
 					if (data.second && data.second->IsWorn() && !removing.contains(id) &&
 						!(worn && worn->contains(id))) {
 						if (const auto wornArmor = obj->As<RE::TESObjectARMO>()) {
-							occupied |= static_cast<std::uint32_t>(wornArmor->GetSlotMask());
+							occupied |= wornArmor->GetSlotMask().underlying();
 						}
 					}
 				}
 
 				for (const auto armor : toAdd) {
-					const auto mask = static_cast<std::uint32_t>(armor->GetSlotMask());
+					const auto mask = armor->GetSlotMask().underlying();
 					if ((mask & occupied) != 0) {
 						continue;
 					}
